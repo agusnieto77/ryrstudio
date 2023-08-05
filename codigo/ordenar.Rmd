@@ -1,0 +1,41 @@
+---
+output: md_document
+---
+
+### Ordenar marcos de datos como objetos en R
+
+Cargamos la base de datos 'df.csv' con la función read.csv() y le asignamos (\<-) el nombre 'df' en el entorno de trabajo de R.
+
+```{r}
+df <- read.csv('https://observatoriodeconflictividad.org/df.csv')
+head(df)
+```
+
+Creamos tres nuevas columnas: 'id', 'salario_2001' y 'salario_2002'
+
+```{r}
+df <- cbind(id = as.integer(row.names(df)), df)
+df$salario_2001 <- rep(c(300,400,500,600),5)
+df$salario_2002 <- rep(c(450,350,650,550),5)
+head(df)
+```
+
+Reordenamos la base: la pasamos de formato ancho (más columnas / menos filas) a formato largo (menos columnas / más filas).
+
+```{r}
+df_long <- reshape(df, 
+                   direction = "long",
+                   timevar = "anio_",
+                   varying = 10:11, sep = '_')
+head(df_long)
+```
+
+Reordenamos la base: la pasamos de formato largo (menos columnas / más filas) a formato ancho (más columnas / menos filas).
+
+```{r}
+df_wide <- reshape(df_long, direction = "wide",
+                   new.row.names = unique(df_long$id))
+head(df_wide)
+```
+
+###### Corra el código en Google Colab desde este [link](https://colab.research.google.com/drive/1EhHNQqhUYQlFqiDiO4b9LuZwgKsS4Zte?usp=sharing "Google Colab").

@@ -1,0 +1,70 @@
+---
+---
+@import "{{ site.theme }}";
+header {
+  img {
+    max-width: 65%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 16;
+    color: #87CEEB;
+  }
+  p {
+    text-align: left;
+    font-size: 14;
+  }
+  p.view {
+    text-align: left;
+    font-size: 12;
+  }
+  a {
+    font-size: 12;
+    color: #87CEEB;
+  }
+  a:hover, a:focus {
+    color: #87CEEB;
+    font-weight: bold;
+    }
+}
+
+
+footer {
+  p {
+    text-align: left;
+    font-size: 12;
+    margin: 0 0 0px;
+  }
+  p.view {
+    text-align: left;
+    font-size: 12;
+  }
+  a {
+    font-size: 12;
+    color: #87CEEB;
+  }
+  a:hover, a:focus {
+  color: #87CEEB;
+  font-weight: bold;
+  }
+}
+
+section {
+  p {
+    color: #212F3C;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #5D6D7E;
+  }
+  a {
+    color: #87CEEB;
+  }
+  a:hover, a:focus {
+  color: #87CEEB;
+  font-weight: bold;
+  }
+}
+

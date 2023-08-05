@@ -1,0 +1,38 @@
+---
+output: md_document
+---
+
+### Manipular marcos de datos como objetos en R
+
+Cargamos la base de datos 'df.csv' con la función read.csv() y le asignamos (\<-) el nombre 'df' en el entorno de trabajo de R.
+
+```{r}
+df <- read.csv('https://observatoriodeconflictividad.org/df.csv')
+head(df)
+```
+
+Creamos una nueva columna llamada 'id'
+
+```{r}
+df <- cbind(id = as.integer(row.names(df)), df)
+head(df)
+```
+
+Creamos una nueva base de datos
+
+```{r}
+df_2 <- data.frame(id = 1:20, 
+                   fumadore = sample(
+                     c(rep('si',10),rep('no',10)), 
+                     20))
+head(df_2)
+```
+
+Ahora unimos las dos bases
+
+```{r}
+dfu <- merge(df,df_2)
+head(dfu)
+```
+
+###### Corra el código en Google Colab desde este [link](https://colab.research.google.com/drive/1lLMUjYM-BRPi4l92To0e4yBnDYAFpr8v?usp=sharing "Google Colab").

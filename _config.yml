@@ -1,0 +1,6 @@
+theme: jekyll-theme-minimal
+title: RyRStudio
+description: Introducción a la recolección y análisis de datos con R y RStudio
+logo: https://raw.githubusercontent.com/agusnieto77/ryrstudio/master/seminario.png
+favicon: img/favicon.ico
+show_downloads: false

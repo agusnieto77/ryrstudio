@@ -1,0 +1,31 @@
+---
+output: md_document
+---
+
+### Iterar en R
+
+Iteramos para crear un vector numérico
+
+```{r}
+df_for_1 <- c()
+df_for_2 <- c()
+
+for(i in 0:9){
+  df_for_1 <- c(df_for_1,i+1)
+  df_for_2 <- c(df_for_2,i+11)
+  }
+
+df_for_1
+df_for_2
+```
+
+Iteramos para crear un vector de caracteres
+
+```{r}
+for(i in strsplit('HOLA', split = "")){
+  print(paste0(i,1:4))
+  print(paste0(1:4,tolower(i),1:4))
+  }
+```
+
+###### Corra el código en Google Colab desde este [link](https://colab.research.google.com/drive/142gljv8tISHVasx4sGkHV9AR1aGqT4Da?usp=sharing "Google Colab").
