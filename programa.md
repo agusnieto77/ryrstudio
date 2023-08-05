@@ -47,42 +47,42 @@ El objetivo de este curso es capacitar a los y las estudiantes en la recolecció
 
 *Recolección de datos con web scraping*
 
--	Introducción al web scraping
--	Uso de herramientas como rvest y RSelenium
--	Extracción de datos de sitios web estáticos y dinámicos
--	Manipulación y limpieza de los datos extraídos
-
-  +   Gualda, E.
-      (2022).
-      Social big data, sociología y ciencias sociales computacionales.
-      *Empiria: Revista de metodología de ciencias sociales*, (53), 147-177.
+  *	Introducción al web scraping
+  *	Uso de herramientas como rvest y RSelenium
+  *	Extracción de datos de sitios web estáticos y dinámicos
+  *	Manipulación y limpieza de los datos extraídos
+  
+    +   Gualda, E.
+        (2022).
+        Social big data, sociología y ciencias sociales computacionales.
+        *Empiria: Revista de metodología de ciencias sociales*, (53), 147-177.
 
 **Clase II**
 
 *Manipulación y visualización de datos con dplyr, tidyr y ggplot2*
 
--	Selección, filtrado y ordenamiento de datos
--	Agrupación y resumen de datos
--	Transformación de datos con tidyr
--	Análisis exploratorio de datos con ggplot2
-
-  +   Albrieu, R., & Palazzo, G.
-      (2020).
-      Categorización de conflictos sociales en el ámbito de los recursos naturales: Un estudio de las actividades extractivas mediante la minería de textos.
-      *Revista CEPAL*, 131, 29--59.
+  *	Selección, filtrado y ordenamiento de datos
+  *	Agrupación y resumen de datos
+  *	Transformación de datos con tidyr
+  *	Análisis exploratorio de datos con ggplot2
+  
+    +   Albrieu, R., & Palazzo, G.
+        (2020).
+        Categorización de conflictos sociales en el ámbito de los recursos naturales: Un estudio de las actividades extractivas mediante la minería de textos.
+        *Revista CEPAL*, 131, 29--59.
 
 **Clase III**
 
 *Minería de texto con tidytext y quanteda*
 
--	Preprocesamiento de texto: tokenización, lematización
--	Análisis de sentimiento
--	Modelado de tópicos y análisis de palabras clave
--	Visualización de datos de texto
-
-  +   Rosati, German.
-      «La Visualización de Datos Es Trabajo Esencial».
-      Factor\~data (blog), 20 de julio de 2020.
+  *	Preprocesamiento de texto: tokenización, lematización
+  *	Análisis de sentimiento
+  *	Modelado de tópicos y análisis de palabras clave
+  *	Visualización de datos de texto
+  
+    +   Rosati, German.
+        «La Visualización de Datos Es Trabajo Esencial».
+        Factor\~data (blog), 20 de julio de 2020.
 
 
 ##### METODOLOGÍA DE TRABAJO Y SISTEMA DE EVALUACIÓN
