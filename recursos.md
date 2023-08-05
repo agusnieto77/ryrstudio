@@ -21,7 +21,7 @@ Link a RStudio Cloud
 ## Guías rápidas de funciones
 
 [intro a
-R](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/intro_r.pdf) -
+R](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/intro_r.pdf) -
 Introducción al lenguaje R.
 
 [intro a
@@ -29,40 +29,40 @@ RStudio](https://www.maximaformacion.es/wp-content/uploads/2018/06/Gu%C3%ADa-R%C
 Introducción al IDE RStudio.
 
 [importar
-datos](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/importar_datos.pdf) -
+datos](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/importar_datos.pdf) -
 Funciones para importar datos a R.
 
-[dplyr](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/dplyr.pdf) -
+[dplyr](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/dplyr.pdf) -
 Introducción a la manipulación de marcos de datos como objetos.
 
-[tidyr](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/tidyr.pdf) -
+[tidyr](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/tidyr.pdf) -
 Introducción al ordenamiento de datos.
 
 [dplyr &
-tidyr](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/domar_datos.pdf) -
+tidyr](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/domar_datos.pdf) -
 Introducción a la manipulación de datos en R.
 
-[stringr](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/strings_es.pdf) -
+[stringr](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/strings_es.pdf) -
 Introducción a la manipulación de cadenas de caracteres en R.
 
-[lubridate](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/lubridate.pdf) -
+[lubridate](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/lubridate.pdf) -
 Introducción a la manipulación de fechas en R.
 
 [ggplot2](https://diegokoz.github.io/intro_ds/fuentes/ggplot2-cheatsheet-2.1-Spanish.pdf) -
 Introducción a la visualización en R.
 
-[purrr](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/purrr.pdf) -
+[purrr](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/purrr.pdf) -
 Introducción a las funciones de iteración en R.
 
 [estadística
-descriptiva](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/estadistica_descriptiva.pdf) -
+descriptiva](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/estadistica_descriptiva.pdf) -
 Introducción a la estadística descriptiva en R.
 
-[caret](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/caret.pdf) -
+[caret](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/caret.pdf) -
 Introducción a las funciones para entrenar y trazar modelos de
 clasificación y regresión.
 
-[rmarkdown](https://github.com/agusnieto77/Sem-HCACSo/raw/main/docs/guias/rmarkdown_es.pdf) -
+[rmarkdown](https://github.com/agusnieto77/ryrstudio/raw/main/docs/guias/rmarkdown_es.pdf) -
 Introducción a los reportes científicos en R.
 
 [más guías](https://www.rstudio.com/resources/cheatsheets/) - Más guías

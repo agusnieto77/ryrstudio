@@ -1,25 +1,25 @@
 # Código
 
 -   Para crear un marco datos en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/df "data frame"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/df "data frame"))
 
 -   Para importar y exportar marcos de datos en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/read_save "import export"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/read_save "import export"))
 
 -   Para manipular marcos de datos como objetos en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/manipular "manipular"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/manipular "manipular"))
 
 -   Para ordenar y reordenar marcos de datos en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/ordenar "ordenar"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/ordenar "ordenar"))
 
 -   Para manipular cadenas de caracteres en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/strings "strings"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/strings "strings"))
 
 -   Para manipular fechas en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/fechas "fechas"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/fechas "fechas"))
 
 -   Para visualizar en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/vis "visualización"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/vis "visualización"))
 
 -   Para iterar en R
-    ([código](https://agusnieto77.github.io/Sem-UNComa/codigo/iterar "iterar"))
+    ([código](https://agusnieto77.github.io/ryrstudio/codigo/iterar "iterar"))

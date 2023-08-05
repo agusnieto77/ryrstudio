@@ -52,7 +52,7 @@ El objetivo de este curso es capacitar a los y las estudiantes en la recolecció
 -	Extracción de datos de sitios web estáticos y dinámicos
 -	Manipulación y limpieza de los datos extraídos
 
--   Gualda, E.
+  -   Gualda, E.
     (2022).
     Social big data, sociología y ciencias sociales computacionales.
     Empiria: Revista de metodología de ciencias sociales, (53), 147-177.
@@ -66,7 +66,7 @@ El objetivo de este curso es capacitar a los y las estudiantes en la recolecció
 -	Transformación de datos con tidyr
 -	Análisis exploratorio de datos con ggplot2
 
--   Albrieu, R., & Palazzo, G.
+  -   Albrieu, R., & Palazzo, G.
     (2020).
     Categorización de conflictos sociales en el ámbito de los recursos naturales: Un estudio de las actividades extractivas mediante la minería de textos.
     Revista CEPAL, 131, 29--59.
@@ -80,7 +80,7 @@ El objetivo de este curso es capacitar a los y las estudiantes en la recolecció
 -	Modelado de tópicos y análisis de palabras clave
 -	Visualización de datos de texto
 
--   Rosati, German.
+  -   Rosati, German.
     «La Visualización de Datos Es Trabajo Esencial».
     Factor\~data (blog), 20 de julio de 2020.
 
