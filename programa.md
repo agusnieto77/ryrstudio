@@ -5,111 +5,59 @@ editor_options:
     wrap: sentence
 ---
 
-# Programa del Seminario Opcional
+# Programa del Seminario de Posgrado
 
-**LA SOCIOLOGÍA Y EL GIRO DIGITAL: HERRAMIENTAS
-COMPUTACIONALES PARA EL ANÁLISIS DE LA CONFLICTIVIDAD EN LA ERA DEL BIG DATA**
+**Introducción a la recolección y análisis de datos con R y RStudio**
 
-Año lectivo: 2022
+Año lectivo: 2023
 
 Régimen de cursada: Cuatrimestral (segundo cuatrimestre)
 
 Profesor a cargo: Agustín Nieto
 
-Carga horaria: 64
+Carga horaria: 12
 
-Período: agosto -- diciembre
+Período: 7, 8 y 10 de agosto
 
-Número de encuentros: 16
+Número de encuentros: 3
 
-Horario: jueves 17-21 hs.
+Horario: jueves 13-17 hs.
 [modalidad: virtual]
 
 ##### FUNDAMENTACIÓN Y OBJETIVOS
 
-El giro digital y su boom de datos forzó diálogos insospechados entre las ciencias comunicacionales y las ciencias sociales y humanas.
-Las nuevas tecnologías y la proliferación de datos masivos en formato digital trajeron más desorden a los ya desordenados escritorios de científicxs sociales y humanistas (historiadorxs, sociólogxs, politólogxs, antropólogxs, filósofxs, etc., etc., etc.), que el contexto pandémico no hizo más que amplificar con su hipertrofiada virtualidad.
-¿Cómo hacer archivo de forma remota?
-¿Se puede hacer etnografía en la virtualidad?
-¿Las encuestas online son confiables?
-¿Son viables las entrevistas por telegram o whatsapp?
-¿Cómo ir a la hemeroteca sin salir de casa?
-¿Cómo leer cientos de periódicos sin hojearlos?
+El curso se fundamenta en la necesidad creciente de comprender y aprovechar el potencial de los datos en diversos ámbitos. En la era digital, la cantidad de datos disponibles es enorme y su análisis adecuado puede brindar valiosas perspectivas y ventajas competitivas. El curso capacita a lxs estudiantes en el manejo y análisis de datos con R y RStudio. Se exploran técnicas de web scraping, manipulación de datos con dplyr y tidyr, y minería de texto con tidytext y quanteda. Lxs estudiantes aprenden a recolectar datos de fuentes en línea, limpiarlos y extraer información relevante. Al finalizar, están preparadxs para enfrentar desafíos en el análisis de datos estructurados, semi-estructurados y no estructurados, aplicando estas habilidades en contextos académicos o profesionales.
 
-Las relaciones entre programación y ciencias sociales no son nuevas, pero sí más visibles y necesarias que hace unos años.
-No parece ser conveniente encerrarse en una postura contraria.
-Estamos cada vez más cerca de la incorporación de técnicas y métodos computacionales en los planes de estudios de las carreras universitarias de grado.
-Ciencias Sociales Computacionales, Humanidades Digitales, Historia Digital, lectura distante, métodos cualitativos digitales, son nombres cada vez más escuchados en nuestros ámbitos de trabajo.
-Y lo serán aún más en poco tiempo.
-
-Dentro de la maraña de epistemologías, problemáticas, metodologías, técnicas, enfoques y lenguajes de programación disponibles para adentrarse en el mundo de las ciencias sociales computacionales y las humanidades digitales, elegimos el camino utilitarista de les autodidactas de tutoriales de youtube.
-A partir de un set pequeño de problemas concretos a resolver (cómo bajar de internet grandes cantidades de texto, de qué modo darle formato tabular, cómo limpiarlos, procesarlos, explorarlos y visualizarlos sin hacer una lectura cercana de lo recolectado, y no morir en el intento) nos relacionaremos con el lenguaje de programación R Project para desarrollar ejercicios de web scraping, minería de texto y lectura distante.
-
-Este seminario se mete en todo esto con el horizonte de que quienes lo cursen puedan realizar análisis y mediciones de la conflictividad social, hechos de rebelión, eventos de protesta, o como quieran llamarlos.
-En este sentido, los lenguajes de programación como R, Python, Julia y otros nos brindan herramientas muy potentes tanto para desarrollar los tradicionales análisis estadísticos como para utilizar y desarrollar algoritmos útiles para procesar y analizar un gran volumen de información no estructurada como son las notas periodísticas publicadas diariamente por los portales noticiosos como La Nación, La Capital, Los Andes, El Día, Hoy, por nombrar solo algunos.
-
-**¿Por qué analizar la conflictividad social con técnicas computacionales?**
-
-Desde hace unos pocos años, las humanidades digitales y las ciencias sociales computacionales se propusieron avanzar en la investigación social utilizando el creciente poder de procesamiento informático de las computadoras de escritorio, las innovaciones metodológicas y el incesante crecimiento de la masa de datos para lograr un mejor conocimiento sobre los fenómenos sociales.
-El conflicto es un fenómeno social fundamental y, por ende, debería ser un tema central en la agenda de investigación de las ciencias sociales y humanas.
-El giro digital en curso torna a los enfoques computacionales en un elemento central en el campo de estudios de la conflictología.
-La confluencia de la creciente masa de datos masivos con las cada vez más evolucionadas técnicas procesamiento informático de corpus textuales permiten el modelado de dinámicas de conflicto.
-En este sentido, el objetivo del seminario es introducir a quienes lo cursen al uso de algunos de estos enfoques computacionales como vía para mejorar la comprensión de los procesos conflictivos.
-
-El enfoque computacional en las investigaciones sobre procesos conflictivos, puede hacer avanzar al campo de estudios por tres ejes de relevancia: 1) la identificación de los conflictos como procesos espacio-temporales que permite rastrear la interacción de los actores en escenarios de conflicto y sus consecuencias, 2) la disponibilidad de nuevos conjuntos de datos detallados de eventos de conflicto en todas las escalas (local - global) gracias a la digitalización y a las técnicas computacionales para recolectar, almacenar y analizar estos datos, 3) la articulación de distintos enfoques y técnicas computacionales para el análisis de los nuevos datos disponibles.
+El objetivo de este curso es capacitar a los y las estudiantes en la recolección y análisis de datos estructurados, semi-estructurados y no estructurados utilizando R y RStudio. Al finalizar el curso, quienes participen estarán familiarizados con las técnicas de web scraping, manipulación de datos con dplyr y tidyr, y minería de texto con tidytext y quanteda, y podrán aplicar estos conocimientos para obtener, limpiar, transformar y analizar datos de diversas fuentes.
 
 **Objetivos**
 
-• Conocer los aspectos básicos de la programación en R (como humanistas no como programadorxs).
+-	Comprender los conceptos fundamentales de la recolección y análisis de datos y su importancia en el contexto actual.
+-	Adquirir habilidades en web scraping para extraer datos de sitios web estáticos y dinámicos de manera automatizada.
+-	Dominar las técnicas de manipulación y limpieza de datos utilizando las librerías dplyr y tidyr de R.
+-	Explorar y visualizar datos utilizando las capacidades gráficas de R y ggplot2.
+-	Comprender los conceptos básicos de la minería de texto y cómo aplicarlos en la extracción de información relevante de textos.
+-	Aprender a preprocesar y analizar textos utilizando las librerías tidytext y quanteda.
+-	Aplicar técnicas de análisis de sentimiento y modelado de tópicos en textos con el fin de obtener información útil y relevantes.
+-	Aplicar los conocimientos adquiridos en la realización de un proyecto final que integre las diferentes técnicas aprendidas durante el curso.
 
-• Dar los primeros pasos en el manejo del IDE RStudio (entorno de desarrollo integrado para R).
-
-• Aprender los rudimentos elementales del manejo de cadena de caracteres y corpus de textos.
-
-• Saber transformar las palabras en números para realizar mediciones de frecuencias, proporciones y relaciones (veremos que las palabras y los números no se llevan tan mal y que la frontera entre lo cuali y lo cuanti no es tan nítida como creíamos).
-
-• Lograr familiarizarse con algunos de los paquetes de visualización más populares en R.
-'Si no lo veo no lo creo': las visualizaciones son una forma muy conveniente de detectar patrones y correlaciones (ni palabras ni números, gráficos).
 
 ##### CONTENIDOS Y BIBLIOGRAFÍA OBLIGATORIA
 
 **Unidad I**
 
-Introducción a las ciencias sociales computacionales y a las humanidades digitales.
-Instalación del lenguaje R y exploración de su sintaxis básica.
-Introducción a la sintaxis básica.
-Distintos objetos R: vectores, arrays, matrices, listas, base de datos, etc.
-Distintos tipos de objetos: cadena de caracteres, numéricos, factores, etc.
-Funciones básicas, sum(), paste(), mean(), table(), summary(), etc.
-Instalación de RStudio y reconocimiento de sus ventanas (consola, script, visualización, objetos en memoria, etc.).
-Creación de scripts.
-Organización del directorio de trabajo.
-Creación de proyectos.
-Vinculación con github.
+*Recolección de datos con web scraping*
+-	Introducción al web scraping
+-	Uso de herramientas como rvest y RSelenium
+-	Extracción de datos de sitios web estáticos y dinámicos
+-	Manipulación y limpieza de datos extraídos
+-	Manipulación de datos con dplyr y tidyr
 
--   Aragona, B.
-    (2022).
-    Tipos de big data y análisis sociológico: usos, críticas y problemas éticos.
-    Empiria.
-    Revista De metodología De Ciencias Sociales, (53), 15--30.
-
--   Cabrera-Álvarez, P. (2022).
-    Survey Research in Times of Big Data.
-    Empiria.
-    Revista De metodología De Ciencias Sociales, (53), 31--51.
 
 -   Gualda, E.
     (2022).
     Social big data, sociología y ciencias sociales computacionales.
     Empiria: Revista de metodología de ciencias sociales, (53), 147-177.
-
--   Pereira, Isabel Quintas.
-    «La estadística computacional: una propuesta didáctica».
-    Política y Cultura, nº 53 (29 de junio de 2020): 183-204.
-
--   Piovani, Juan Ignacio, y Paolo Parra Saiani.
-    «Triangulación metodológica y big data».
-    PRACS: Revista Eletrônica de Humanidades do Curso de Ciências Sociais da UNIFAP 14, nº 2 (26 de febrero de 2022): 157-67.
 
 **Unidad II**
 
