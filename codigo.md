@@ -25,4 +25,4 @@
     ([código](https://agusnieto77.github.io/ryrstudio/codigo/iterar "iterar"))
 
 -   Repositorio GitHub
-    ([código](https://agusnieto77.github.io/ryrstudio/material "github"))
+    ([código](https://github.com/agusnieto77/ryrstudio/tree/main/material "github"))

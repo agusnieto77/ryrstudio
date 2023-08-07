@@ -10,5 +10,5 @@ El curso se fundamenta en la necesidad creciente de comprender y aprovechar el p
 
 [👉 Aquí podrán ingresar al programa online 📋](https://agusnieto77.github.io/ryrstudio/programa)
 
-[👉 Aquí podrán ingresar al repositorio en GitHub 💻](https://agusnieto77.github.io/ryrstudio/material)
+[👉 Aquí podrán ingresar al repositorio en GitHub 💻](https://github.com/agusnieto77/ryrstudio/tree/main/material)
 
