@@ -34,7 +34,7 @@ require(ACEP)
 
 # Limpiar el texto obtenido del web scraping utilizando el paquete 'ACEP',
 # eliminando las palabras indicadas en 'other_sw'
-resumen_limpio <- acep_cleaning(resumen, other_sw = c("panorama", "us", "días"))
+resumen_limpio <- acep_cleaning(resumen, other_sw = c("panorama", "us", "días", "sigue"))
 
 # Imprimir los primeros dos elementos del vector 'resumen_limpio'
 resumen_limpio[1:2]

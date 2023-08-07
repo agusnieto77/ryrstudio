@@ -156,6 +156,7 @@ str(poblacion)
 # Utilizamos las funciones 'pivot_longer' del paquete 'tidyr' para transformar la tabla "poblacion" de formato ancho a largo.
 # El argumento 'c(-continent, -country)' indica que las columnas "continent" y "country" se mantendrán como identificadores,
 # mientras que el resto de las columnas se convertirán en dos columnas nuevas: "obs_anio" (nombre de la observación y año) y "valor" (valor de la observación).
+require(tidyr)
 poblacion_long <- pivot_longer(poblacion, 
                                c(-continent, -country),
                                names_to = "obs_anio",
@@ -280,3 +281,4 @@ head(diccionario_aglomerados)
 
 # Unimos las tablas de condición de ocupación según sexo en una sola tabla
 (Tabla_unificada <- full_join(Tabla_Ocu2, Tabla_Ocu1, by = "Condicion"))
+

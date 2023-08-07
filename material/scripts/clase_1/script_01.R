@@ -32,7 +32,7 @@ for (u in urls) {
 }
 
 # Nombramos y creamos un nuevo directorio para almacenar los PDFs descargados
-nuevodir <- paste0(getwd(), "/material/scripts/clase_1/pdfs/")
+nuevodir <- paste0(getwd(), "/material/data/pdfs/")
 if (!file.exists(nuevodir))  {
   dir.create(nuevodir)
 }
@@ -133,7 +133,6 @@ links <- url_absolute(
 links
 
 # Crear una estructura de datos compuesta (lista)
-
 # Creamos un objeto vacío para almacenar los datos
 datos <- list()
 
