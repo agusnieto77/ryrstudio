@@ -63,7 +63,6 @@ tablas <- html_table(html_elements(html, ".wikitable"))
 # Imprimir todas las tablas
 tablas
 
-
 # Imprimir solo la primera tabla
 print(tablas[[2]], n = 24)
 
@@ -98,7 +97,7 @@ xml2::html_structure(html)
 
 # Seleccionamos nodos de fecha y los convertimos en un vector de fechas
 fechas <-
-  html_text2( # 
+  html_text2(
     html_elements(
       html,
       xpath='//*[contains(@class, "com-date")]'
