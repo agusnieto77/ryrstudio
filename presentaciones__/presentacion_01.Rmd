@@ -1,0 +1,81 @@
+---
+title: '<span style="color: skyblue"><b>Introducción a R y RStudio</span></b><br>'
+
+subtitle: "<span style='font-size: 48px; color: darkred;'><br>Recolección y análisis de datos I</span>"
+
+author: '<span style="font-size: 38px; color: darkred;"><b>Agustín Nieto</b></span> <br> <span style="font-size: 28px; color: darkred;">@agusnieto77</span>'
+
+date: '<b><span style="font-size: 25px;">`r Sys.Date() |> format("%d/%m/%Y")`</span></b>'
+
+output: revealjs::revealjs_presentation
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(fig.width=6, fig.height=4) 
+```
+
+
+# <span style="color: skyblue; font-size: 58px;"><b>¿Qué es Git?</span></b>{style="margin-top: -20px;"}
+
+<style>
+
+body {
+  background-image: 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png),
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png);
+  background-size: 12%, 12%, 12%, 12%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 95% 95%, 95% 5%, 5% 5%, 5% 95%;
+}
+
+</style>
+
+<p style="font-size: 30px; text-align: justify; color: darkgreen; margin-top: 40px;">Es un <b>Sistema de Control de Versiones Distribuido</b> (DVCS) que se utiliza para guardar diferentes versiones de archivos y poder recuperarlos luego.</p>
+
+<p style="font-size: 30px; text-align: justify; color: darkblue;">Facilita el registro y comparación de diferentes versiones de un archivo. Esto significa que los detalles sobre **qué** cambió, **quién**, **cuándo** lo cambió, se pueden revisar.</p>
+
+<p style="font-size: 30px; text-align: justify; color: darkgreen;">**En resumen**: Git es un software de DVCS local que permite a lxs desarrolladorxs guardar instantáneas de sus proyectos a lo largo del tiempo.</p>
+
+<p style="font-size: 30px; text-align: justify; color: darkblue;">*Git* es **distinto** a *GitHub*</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre Git](https://es.wikipedia.org/wiki/Git)
+</b>
+</div>
+
+## <b>¿Qué es GitHub?</b>{style="color: darkred;"}
+
+<p style="font-size: 30px; text-align: justify; color: darkorange; margin-top: 40px;">A diferencia de Git, **GitHub** es una plataforma basada en la web que incorpora las características de control de versiones de Git para que puedan ser utilizadas de forma colaborativa. Es una *interfaz web* entre Git y lxs usuarixs que incluye características de gestión de proyectos y equipos, así como oportunidades para la creación de redes y la codificación social.</p>
+<p style="font-size: 30px; text-align: justify; color: darkorange;">**Git** y **GitHub** son dos entidades diferentes que te ayudan a gestionar y alojar archivos. En otras palabras Git sirve para controlar las versiones de los archivos mientras que GitHub es una plataforma para alojar repositorios Git.</p>
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre Git](https://es.wikipedia.org/wiki/GitHub)
+</b>
+</div>
+
+## <b>R y RStudio</b>{style="color: darkred;"}
+
+<p style="font-size: 30px; text-align: justify; color: black; margin-top: 30px;">**R** es un **entorno** y **lenguaje de programación** de código abierto que proporciona una variedad de técnicas estadísticas y gráficas. Es un proyecto GNU (General Public License), cualquier persona puede estudiar, usar, modificar y compartir el software sin que pertenezca a nadie.</p>
+
+<p style="font-size: 30px; text-align: justify; color: black;">**RStudio** es un **Entorno de Desarrollo Integrado** (IDE) para el lenguaje de programación **R** (y otros como Python), dedicado a la computación estadística y gráficos. Incluye una consola, editor de sintaxis que apoya la ejecución de código, así como herramientas para el trazado, la depuración y la gestión del espacio de trabajo.</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Ir al colab](https://colab.to/r)
+</b>
+</div>
+
+## <b>¿Qué es el web scraping?</b>{style="color: darkred;"}
+
+<p style="font-size: 30px; text-align: justify; color: black; margin-top: 25px;">Se denomina **web scraping** (en inglés = arañado o raspado web) a la extracción (automatizada y dirigida) y almacenamiento computacional del contenido de páginas web. La información raspada puede ser de diverso tipo. Por ejemplo, contactos telefónicos, correo electrónico, direcciones físicas, información censal, notas periodísticas o de opinión, comentarios de lectorxs, precios, etc. Esta información se almacena en formatos diversos: vectores lógicos, numéricos o de texto plano, marcos de datos, tablas, listas, matrices, arrays. Los objetos de clase arrays son poco usuales. En este curso nos vamos a centrar en los objetos de tipo tabular (tibbles y data frames). También usaremos objetos de clase lista y vector. En términos generales, el web scraping toma información web semi-estructurada y la devuelve en un formato estructurado. Como dijimos, aquí usaremos el formato tibble.</p>
+
+## <b>¿Cuándo debemos hacer uso del web scraping y cuando no?</b>{style="color: darkred;"}
+
+<div style="font-size: 40px; color: black;">
+- Cuando no hay un conjunto de datos disponible para la problemática que queremos abordar.
+
+- Cuando no hay una API (interfaz de programación de aplicaciones) pública disponible que permita un intercambio fluido con los datos que necesitamos recopilar.
+</div>

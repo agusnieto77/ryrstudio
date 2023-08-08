@@ -1,0 +1,162 @@
+---
+title: '<span style="color: skyblue"><b>Introducción a R y RStudio</span></b><br>'
+
+subtitle: "<span style='font-size: 48px; color: darkred;'><br>Recolección y análisis de datos III</span>"
+
+author: '<span style="font-size: 38px; color: darkred;"><b>Agustín Nieto</b></span> <br> <span style="font-size: 28px; color: darkred;">@agusnieto77</span>'
+
+date: '<b><span style="font-size: 25px;">`r Sys.Date() |> format("%d/%m/%Y")`</span></b>'
+
+output: revealjs::revealjs_presentation
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(fig.width=6, fig.height=4) 
+```
+
+
+# <span style="color: skyblue; font-size: 58px;"><b>¿Qué es una página estática?</span></b>{style="margin-top: 10px;"}
+
+<style>
+
+body {
+  background-image: 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png),
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png);
+  background-size: 12%, 12%, 12%, 12%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 95% 95%, 95% 5%, 5% 5%, 5% 95%;
+}
+
+</style>
+
+<p style="font-size: 23px; text-align: justify;">En esencia, una página web es solo un archivo HTML que se muestra en un navegador web. Cuando visita un sitio web, su navegador envía una solicitud al servidor web que aloja el sitio y el servidor responde devolviendo un archivo HTML junto con algunos otros archivos relacionados. Su navegador procesa este archivo HTML y se lo muestra como una página. En última instancia, tanto los sitios web estáticos como los dinámicos generan archivos HTML, pero lo que hace que un sitio web sea **estático** versus **dinámico** depende de cómo el servidor crea este archivo HTML antes de enviárselo.</p>
+
+<p style="font-size: 23px; text-align: justify;">Una **página web estática** es una página web que se entrega al navegador del usuario exactamente como está almacenada, en contraste con las páginas web dinámicas que son generadas por una aplicación web. En consecuencia, una página web estática muestra la misma información para todos lxs usuarixs. Las páginas web estáticas suelen ser documentos HTML almacenados como archivos en el sistema de archivos y puestos a disposición por el servidor web a través de HTTP. Sin embargo, las interpretaciones laxas del término podrían incluir páginas web almacenadas en una base de datos, e incluso podrían incluir páginas formateadas utilizando una plantilla y servidas a través de un servidor de aplicaciones, siempre que la página servida no cambie y se presente esencialmente como almacenada.</p>
+
+# <b>Introducción al paquete `{rvest}`</b>{style="color: darkred; font-size: 50px; margin-top: 15px;"}
+
+<p style="font-size: 25px; text-align: justify;">El paquete `rvest` nos ayuda a extraer y recolectar datos de páginas web estáticas y dinámicas (estas últimas con la ayuda de RSelenium). Está diseñado facilitar las tareas comunes de raspado web. `rvest` está inspirado en paquetes como *beautiful soup* y *RoboBrowser* de Python.</p>
+
+<p style="font-size: 25px; text-align: justify;">Si vamos a ‘raspar’ varias páginas web, es recomendable utilizar, junto a `rvest`, el paquete `polite`. El [paquete `polite`](https://github.com/dmi3kno/polite) asegura que se respeten los términos del documento `robots.txt` y que nuestras solicitudes no sobrecarguen el sitio web que estamos ‘raspando’. El archivo `robots.txt` indica a los rastreadores de los buscadores qué páginas o archivos del sitio se pueden solicitar y cuáles no. Como ya dijimos, se utiliza para evitar que las solicitudes que recibe el sitio lo sobrecarguen.</p>
+
+<p style="font-size: 25px; text-align: justify;">El paquete `rvest` es parte de `tidyverse`, un ecosistema de paquetes diseñados con APIs comunes y una filosofía compartida. Para más información véase [tidyverse.org](https://www.tidyverse.org/).</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre el paquete `rvest`](https://rvest.tidyverse.org/)
+</b>
+</div>
+
+## <b>Función para leer documentos HTML</b>{style="color: darkred; margin-top: 25px;"}
+
+<p style="font-size: 36px; text-align: justify; color: darkorange; margin-top: 50px;">La función `read_html()` es originaria del [paquete `xml2`](https://cran.r-project.org/web/packages/xml2/xml2.pdf) que trabaja con archivos XML y usa una interfaz simple y consistente. El paquete `xml2` fue diseñado en base al paquete `libxml2` del lenguaje `C`. La función `read_html()` convierte un documento XML/HTML (o nodo o conjunto de nodos) en una lista R equivalente.</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 50px;">>
+<b>
+[Más info sobre la función `read_html()`](https://xml2.r-lib.org/reference/read_xml.html)
+</b>
+</div>
+
+## <b>Función para extraer nodos</b>{style="color: darkred; margin-top: 10px;"}
+
+<p style="font-size: 36px; text-align: justify; color: darkorange; margin-top: 20px;">Las funciones `html_element()` y `html_elements()` permiten extraer con facilidad fragmentos de documentos HTML mediante los selectores `XPath` y `CSS`.</p>
+
+### Argumentos{style="font-size: 30px;"}
+
+<table>
+<tbody style="font-size: 20px;">
+<tr>
+<td width="146">
+<p style="text-align: right;">
+x
+</p>
+</td>
+<td width="650">
+<p style="text-align: justify;">
+Un documento, un conjunto de nodos o un solo nodo.
+</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p style="text-align: right;">
+css, xpath
+</p>
+</td>
+<td width="650">
+<p style="text-align: justify;">
+Nodos para seleccionar. Proporcione uno de `css` o `xpath` dependiendo
+de si desea utilizar un selector CSS o XPath 1.0.
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 50px;">>
+<b>
+[Más info sobre la función `html_elements()`](https://rvest.tidyverse.org/reference/html_element.html)
+</b>
+</div>
+
+## <b>Función para extraer texto</b>{style="color: darkred; margin-top: 10px;"}
+
+<p style="font-size: 26px; text-align: justify; color: darkorange; margin-top: 20px;">Hay dos formas de recuperar texto de un elemento html: `html_text()` y `html_text2()`. La función `html_text()` es una fina envoltura alrededor de la función `xml2::xml_text()` que devuelve solo el texto subyacente sin procesar. Por su parte, `html_text2()` simula cómo se ve el texto en un navegador y utiliza un enfoque inspirado en la función `innerText()` de JavaScript. En términos generales, convierte la etiqueta `<br />` en `\n`, agrega líneas en blanco alrededor de las etiquetas `<p>` y formatea ligeramente los datos tabulares.</p>
+
+<p style="font-size: 26px; text-align: justify; color: darkorange; margin-top: 20px;">Vale aclarar que `html_text2()` suele devolver lo que se desea en la forma en que se desea, pero es mucho más lento que `html_text()`. Por esta razón es recomendable usar `html_text()` para raspados de mayor volumen.</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 50px;">>
+<b>
+[Más info sobre la función `html_text()`](https://rvest.tidyverse.org/reference/html_text.html)
+</b>
+</div>
+
+## <b>Función para extraer atributos de elementos HTML</b>{style="color: darkred; margin-top: 10px;"}
+
+<p style="font-size: 36px; text-align: justify; color: darkorange; margin-top: 10px;">`html_attr()` obtiene un solo atributo; `html_attrs()` obtiene todos los atributos.</p>
+
+```{r attr}
+library(rvest)
+minimal_html('<ul><li><a href="https://a.com" class="important">a</a></li></ul>') |> 
+  html_elements("a") |> html_attr("href")
+
+```
+
+
+<div style="font-size: 20px; color: skyblue; margin-top: 10px;">>
+<b>
+[Más info sobre la función `html_attr()`](https://rvest.tidyverse.org/reference/html_attr.html)
+</b>
+</div>
+
+## <b>Función para extraer tablas</b>{style="color: darkred; margin-top: 10px;"}
+
+<p style="font-size: 36px; text-align: justify; color: darkorange; margin-top: 10px;">La función `html_table` transforma una tabla html en un marco de datos.</p>
+
+```{r table}
+library(rvest)
+minimal_html("<table><tr><th>Col A</th><th>Col B</th></tr>
+  <tr><td>1</td><td>x</td></tr><tr><td>4</td><td>y</td></tr>
+  <tr><td>10</td><td>z</td></tr></table>") |> 
+  html_element("table") |> html_table()
+```
+
+
+<div style="font-size: 20px; color: skyblue; margin-top: 10px;">>
+<b>
+[Más info sobre la función `html_table()`](https://rvest.tidyverse.org/reference/html_table.html)
+</b>
+</div>
+
+# <b>Otro paquete para Web Scraping: {Rcrawler}</b>{style="color: skyblue; font-size: 55px; margin-top: 20px;"}
+
+<p style="font-size: 30px; text-align: justify; color: darkblue; margin-top: 60px;">`{Rcrawler}` es un paquete R para rastrear sitios web y extraer datos estructurados que se pueden usar para una amplia gama de aplicaciones útiles, como minería web, minería de texto, minería de contenido web y minería de estructuras web. Entonces, ¿cuál es la diferencia entre Rcrawler y rvest?: rvest extrae datos de una página específica navegando a través de selectores. Rcrawler atraviesa y analiza automáticamente todas las páginas web de un sitio web y extrae todos los datos que necesita de ellos a la vez con un solo comando..</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 40px;">>
+<b>
+[Más info sobre el paquete `{Rcrawler}`](https://github.com/salimk/Rcrawler)
+</b>
+</div>

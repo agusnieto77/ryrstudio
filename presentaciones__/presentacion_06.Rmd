@@ -1,0 +1,69 @@
+---
+title: '<span style="color: skyblue"><b>Introducción a R y RStudio</span></b><br>'
+
+subtitle: "<span style='font-size: 48px; color: darkred;'><br>Recolección y análisis de datos VI</span>"
+
+author: '<span style="font-size: 38px; color: darkred;"><b>Agustín Nieto</b></span> <br> <span style="font-size: 28px; color: darkred;">@agusnieto77</span>'
+
+date: '<b><span style="font-size: 25px;">`r Sys.Date() |> format("%d/%m/%Y")`</span></b>'
+
+output: revealjs::revealjs_presentation
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(fig.width=6, fig.height=4) 
+```
+
+
+# <span style="color: skyblue; font-size: 58px;"><b>Página dinámica vs Página estática</span></b>{style="margin-top: -1px;"}
+
+<style>
+
+body {
+  background-image: 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png),
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png);
+  background-size: 12%, 12%, 12%, 12%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 95% 95%, 95% 5%, 5% 5%, 5% 95%;
+}
+
+</style>
+
+<p style="font-size: 33px; text-align: justify;">Página web estática: una página web (página HTML) que contiene la misma información para todos los usuarios. Aunque puede actualizarse periódicamente, no cambia con cada recuperación de usuario. Notarán que al interaccionar con la página para acceder a más datos se producen cambios en la dirección URL</p>
+
+<p style="font-size: 33px; text-align: justify;">Página web dinámica: una página web que proporciona contenido personalizado para el usuario en función de los resultados de una búsqueda o alguna otra solicitud. También conocido como **HTML dinámico** o **contenido dinámico**, el término **dinámico** se utiliza para referirse a páginas web interactivas creadas para cada usuario. Notarán que al interaccionar con la página para acceder a más datos **no** se producen cambios en la dirección URL.</p>
+
+# <b>Otras funciones de {RSelenium}</b>{style="color: skyblue; font-size: 80px; margin-top: 95px;"}
+
+## <b>Para navegar</b>{style="color: orange; font-size: 50px; margin-top: 35px;"}
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**goBack()**: Equivalente a presionar el botón **<-** en el navegador.</p>
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**goForward()**: Equivalente a presionar el botón **->** en el navegador.</p>
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**refresh()**: recargar la página actual.</p>
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**maxWindowSize()**: establece el tamaño de la ventana del navegador al máximo. De forma predeterminada, el tamaño de la ventana del navegador es pequeño y es posible que algunos elementos del sitio web al que navega no estén disponibles de inmediato.</p>
+
+## <b>Para raspar</b>{style="color: orange; font-size: 50px; margin-top: 65px;"}
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**getCurrentUrl()**: Recuperar la URL de la página actual.</p>
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**getPageSource()[[1]]**: Obtener la fuente de la página actual. Este método combinado con `rvest` es lo que hace posible extraer páginas web dinámicas. El documento xml devuelto por el método se puede leer usando rvest::read_html(). Este método devuelve un objeto de `lista`, esa es la razón detrás de [[1]].</p>
+
+## <b>Cierre y reapertura</b>{style="color: orange; font-size: 55px; margin-top: 45px;"}
+
+<p style="font-size: 35px; text-align: justify; margin-top: 35px; color: purple;">**close()**: Cierra la sesión actual.</p>
+
+<p style="font-size: 35px; text-align: justify; margin-top: 35px; color: purple;">**open()**: para enviar una solicitud al servidor remoto y crear una instancia del navegador. Se usa este método cuando el navegador se cierra por alguna razón (por ejemplo, inactividad). Si ya ha iniciado el servidor Selenium, debe ejecutar esto en lugar de `rsDriver()` para volver a abrir el navegador.</p>
+
+## <b>Para interactuar con la página</b>{style="color: orange; font-size: 50px; margin-top: 22px;"}
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**sendKeysToElement()**: para envía una secuencia de pulsaciones de teclas a un elemento. Las pulsaciones de teclas se envían como una lista. El texto sin formato se ingresa como un elemento sin nombre de la lista. Las entradas del teclado se definen en **selKeys** y deben enumerarse con el nombre **key**.</p>
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**clearElement()**: para borrar el valor de un elemento TEXTAREA o INPUT de texto.</p>
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px; color: purple;">**clickElement()**: para hacer clic en un elemento. Puede hacer clic en enlaces, casillas de verificación, listas desplegables, etc.</p>

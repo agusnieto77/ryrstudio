@@ -1,0 +1,118 @@
+---
+title: '<span style="color: skyblue"><b>Introducción a R y RStudio</span></b><br>'
+
+subtitle: "<span style='font-size: 48px; color: darkred;'><br>Recolección y análisis de datos V</span>"
+
+author: '<span style="font-size: 38px; color: darkred;"><b>Agustín Nieto</b></span> <br> <span style="font-size: 28px; color: darkred;">@agusnieto77</span>'
+
+date: '<b><span style="font-size: 25px;">`r Sys.Date() |> format("%d/%m/%Y")`</span></b>'
+
+output: revealjs::revealjs_presentation
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(fig.width=6, fig.height=4) 
+```
+
+
+# <span style="color: skyblue; font-size: 58px;"><b>¿Qué es una página dinámica?</span></b>{style="margin-top: -1px;"}
+
+<style>
+
+body {
+  background-image: 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png),
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png);
+  background-size: 12%, 12%, 12%, 12%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 95% 95%, 95% 5%, 5% 5%, 5% 95%;
+}
+
+</style>
+
+<p style="font-size: 23px; text-align: justify;">Las páginas web dinámicas basan su comportamiento y funcionalidad en dos tipos de programación: <b>front-end</b> y <b>back-end</b>. *JavaScript* es el lenguaje de programación que se usa para las instrucciones del lado del cliente. Estas instrucciones se ejecutan en el navegador. Mientras que las instrucciones que se ejecutan del lado del servidor son instrucciones escritas en lenguajes de programación como *PHP* y que son ejecutadas para crear lo que se ha solicitado en interacción con la página.</p>
+
+<p style="font-size: 23px; text-align: justify;">Una vez ejecutadas las instrucciones en el servidor, un nuevo **HTTP** response se envía al navegador para mostrar lo que se ha solicitado. El resultado final es el mismo que en un sitio web estático: una página **HTML** que el usuario ve desde el navegador.</p>
+
+<p style="font-size: 23px; text-align: justify;">Más allá de esta definición, no existe una frontera clara entre lo que es contenido estático y dinámico. Debido a la evolución actual de la web se podría decir que es todo el contenido es dinámico por la manera en que se crea. La proliferación de herramientas de publicación y de autoría de contenidos tales como los blogs convierten en dinámicos contenidos aparentemente estáticos.</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre las páginas dinámicas](https://es.wikipedia.org/wiki/P%C3%A1gina_web_din%C3%A1mica)
+</b>
+</div>
+
+# <b>Introducción a Selenium</b>{style="color: darkred; font-size: 50px; margin-top: 15px;"}
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px;">*Selenium* es un entorno de pruebas que se utiliza para comprobar si el software que se está desarrollando funciona correctamente. Esta herramienta permite: grabar, editar y depurar casos de pruebas que se pueden automatizar.</p>
+
+<p style="font-size: 32px; text-align: justify; margin-top: 35px;">WebDriver es la interfaz básica para simular las interacciones del usuario con cualquier navegador, ya sea Firefox, Chrome, Edge, Safari o Internet Explorer. Desde 2018, la API es un estándar W3C oficial.</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 75px;">>
+<b>
+[Más info sobre Selenium](https://es.wikipedia.org/wiki/Selenium)
+</b>
+</div>
+
+# <b>Introducción al paquete `{RSelenium}`</b>{style="color: darkred; font-size: 50px; margin-top: 15px;"}
+
+<p style="font-size: 25px; text-align: justify; margin-top: 25px;">{RSelenium} está diseñado para facilitar la conexión a un servidor `Selenium` o a un servidor `Selenium remoto`. {RSelenium} permite la conexión desde el entorno R a la API de `Selenium Webdriver`. *Selenium* es un proyecto que se centra en la automatización de los navegadores web.</p>
+
+<p style="font-size: 25px; text-align: justify;">{RSelenium} es imprescindible cuando nos enfrentamos a sitios web que son difíciles de rastrear porque extraen datos de forma dinámica de las bases de datos mediante *JavaScript* y *jQuery*. Por ejemplo, en sitios de redes sociales comunes como *LinkedIn* o *Facebook*, a medida que se desplaza hacia abajo en la página, se carga contenido nuevo y la URL no cambia. Estos sitios web son mucho más difíciles de raspar. Una tarea de raspado fácil es cuando podemos ajustar la URL para cargar una nueva página en función de algún patrón sistemático.</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre el paquete {RSelenium}](https://docs.ropensci.org/RSelenium/)
+</b>
+</div>
+
+## <b>Función `rsDriver()`</b>{style="color: darkred; margin-top: 5px;"}
+
+<p style="font-size: 23px; text-align: justify; color: darkorange; margin-top: 15px;">La función rsDriver es una envoltura para la función selenium del paquete wdman. Permite al usuario gestionar los binarios utilizados para ejecutar un servidor Selenium. Devuelve un entorno que contiene un "cliente" y un "servidor".</p>
+
+<p style="font-size: 24px; text-align: justify; color: darkorange; margin-top: 15px;">Por defecto ejecuta un navegador Chrome. Se pueden seleccionar otros navegadores (firefox, PhantomJS, Internet Explorer (Win)) utilizando el argumento browser.</p>
+
+<p style="font-size: 24px; text-align: justify; color: darkorange; margin-top: 15px;">El puerto por defecto en el que se ejecuta un Selenium Server usando la función rsDriver es port = 4567L.</p>
+
+<p style="font-size: 24px; text-align: justify; color: darkorange; margin-top: 15px;">El siguiente paso es navegar hacia una dirección url con la instancia de interacción de cliente selenium llamada `navigate()`.</p>
+
+<p style="font-size: 24px; text-align: justify; color: darkorange; margin-top: 15px;">Una vez que la página se cargó podemos obtener su contenido con la función `getPageSource()`.</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 50px;">>
+<b>
+[Más info sobre la función `rsDriver()`](https://docs.ropensci.org/RSelenium/reference/rsDriver.html)
+</b>
+</div>
+
+## <b>Función para extraer nodos</b>{style="color: darkred; margin-top: 60px;"}
+
+<p style="font-size: 36px; text-align: justify; color: darkorange; margin-top: 30px;">Las funciones `findElement()` y `findElements()` permiten extraer con facilidad fragmentos de documentos HTML mediante los selectores `XPath` y `CSS`. El elemento ubicado se devolverá como un objeto de la clase "wElement".</p>
+
+
+<div style="font-size: 20px; color: skyblue; margin-top: 50px;">>
+<b>
+[Más info sobre la función `findElements()`](https://rdrr.io/cran/seleniumPipes/man/findElement.html)
+</b>
+</div>
+
+## <b>Función para extraer texto</b>{style="color: darkred; margin-top: 60px; font-size: 50px;"}
+
+<p style="font-size: 36px; text-align: justify; color: darkorange; margin-top: 30px;">La función `getElementText()` devuelve el texto visible del elemento que deseamos obtener en formato texto.</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 50px;">>
+<b>
+[Más info sobre la función `getElementText()`](https://rdrr.io/cran/seleniumPipes/man/getElementText.html)
+</b>
+</div>
+
+## <b>Función para extraer atributos de elementos HTML</b>{style="color: darkred; margin-top: 60px; font-size: 45px;"}
+
+<p style="font-size: 36px; text-align: justify; color: darkorange; margin-top: 35px;">`getElementAttribute()` obtiene el valor del atributo de un elemento como, por ejemplo, una dirección URL.</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 50px;">>
+<b>
+[Más info sobre la función `getElementAttribute()`](https://rdrr.io/cran/seleniumPipes/man/getElementAttribute.html)
+</b>
+</div>

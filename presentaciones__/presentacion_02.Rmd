@@ -1,0 +1,136 @@
+---
+title: '<span style="color: skyblue"><b>Introducción a R y RStudio</span></b><br>'
+
+subtitle: "<span style='font-size: 48px; color: darkred;'><br>Recolección y análisis de datos II</span>"
+
+author: '<span style="font-size: 38px; color: darkred;"><b>Agustín Nieto</b></span> <br> <span style="font-size: 28px; color: darkred;">@agusnieto77</span>'
+
+date: '<b><span style="font-size: 25px;">`r Sys.Date() |> format("%d/%m/%Y")`</span></b>'
+
+output: revealjs::revealjs_presentation
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(fig.width=6, fig.height=4) 
+```
+
+
+# <span style="color: skyblue; font-size: 58px;"><b>Web Scraping</span></b>{style="margin-top: 10px;"}
+
+<style>
+
+body {
+  background-image: 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png),
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png), 
+  url(https://eco.mdp.edu.ar/cv/pluginfile.php/1/theme_adaptable/logo/1690286206/logotipo-rgb-hi.png);
+  background-size: 12%, 12%, 12%, 12%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 95% 95%, 95% 5%, 5% 5%, 5% 95%;
+}
+
+</style>
+
+<p style="font-size: 23px; text-align: justify;">No todos los servicios en línea en los que podemos estar interesados ofrecen una API; y desde 2018 el acceso a la API para lxs investigadorxs se ha vuelto cada vez más restringido. Si los datos no se pueden recopilar mediante una API, debemos recurrir al web scraping. El raspado web se reduce a descargar automáticamente páginas dirigidas a una audiencia humana y extraer información significativa de ellas. Al extraer datos de la web, podemos distinguir dos tareas diferentes: 1) descargar una cantidad de páginas web y 2) analizar su contenido.</p>
+
+<p style="font-size: 23px; text-align: justify;">Para analizar un archivo HTML debe tener un conocimiento básico de su estructura. Debe abrir un navegador web, visitar un sitio web de su elección e inspeccionar su código HTML subyacente (casi todos los navegadores tienen una función llamada algo así como "ver código fuente", que le permite hacerlo). Detectarán algunos patrones regulares allí. Por ejemplo, se puede ver que cada párrafo está encerrado con las etiquetas `<p>` y `</p>`. Por ahora, alcanza con intuir la función que cumple cada etiqueta específica (por ejemplo, darse cuenta de que 'a' denota un enlace, 'h1' un encabezado de primer nivel y 'div' algún tipo de sección). Sin embargo, es más importante darse cuenta que cada etiqueta se abre y se cierra (por ejemplo, `<p>` se cierra con `</p>`). También es importante saber que las etiquetas se pueden anidar.</p>
+
+## <b>Los atributos de las etiquetas HTML</b>{style="color: darkred;"}
+
+<p style="font-size: 26px; text-align: justify; margin-top: 40px;">Las etiquetas HTML pueden tener atributos como clase e id. Por ejemplo, lxs creadorxs de una página pueden usar atributos para especificar qué contiene una sección. Pueden haber escrito `<p class = "principal"> ... </p>` para marcar el párrafo principal de un artículo y `<a href = "ejemplo.html"> ... </a>` para especificar el destino de un hipervínculo. Aquí son especialmente importantes los atributos `id` y `class`, que las páginas web suelen utilizar para controlar el formato. **id** (indicado con el signo hashtag #) da una identificación única a un solo elemento, mientras que **class** (indicado con un punto) asigna una etiqueta de clase a uno o más elementos. Esto permite que los sitios web especifiquen su diseño y formato utilizando una técnica llamada hojas de estilo en cascada (CSS). Por ejemplo, la página web podría configurar el párrafo principal en negrita. Lo bueno es que podemos explotar esta información para decirle a nuestro analizador dónde encontrar los elementos que nos interesan.</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre las etiquetas HTML y sus atributos](https://es.wikipedia.org/wiki/Atributo_HTML)
+</b>
+</div>
+
+## <b>Selectores de CSS</b>{style="color: darkred;"}
+
+<p style="font-size: 26px; text-align: justify; color: darkorange; margin-top: 40px;">La forma más fácil de especificar nuestro analizador para buscar un elemento específico es usar un Selector de CSS, que puede resultarle familiar si ha creado páginas web. Por ejemplo, para encontrar los párrafos principales, especificamos `p.principal`. Mientras que para encontrar el nodo con `id = "cuerpo"`, podemos especificar `#cuerpo`. También puede usar esto para especificar relaciones entre nodos. Por ejemplo, para encontrar todos los párrafos dentro del elemento del cuerpo, escribiríamos `#cuerpo p`.</p>
+
+<p style="font-size: 26px; text-align: justify; color: darkorange;">En general, un selector CSS es un conjunto de especificadores de nodos como `h1`, `.principal`, `div#cuerpo`), opcionalmente con especificadores de relación entre ellos. Por lo tanto, `#cuerpo p` encuentra los nodos `p` en cualquier lugar dentro del elemento `id=cuerpo`, mientras que` #cuerpo > p` requiere que esté contenido directamente dentro del cuerpo (sin otros nodos en el medio).</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre CSS](https://www.w3schools.com/css/css_examples.asp)
+</b>
+</div>
+
+## <b>XPath</b>{style="color: darkred;"}
+
+<p style="font-size: 26px; text-align: justify; color: darkorange; margin-top: 40px;">Una alternativa a los selectores CSS es XPath. Mientras que los selectores de CSS se basan directamente en estilos HTML y CSS, XPath es una forma general de describir nodos en documentos HTML. La forma general de XPath es similar al selector CSS: una secuencia de descriptores de nodo como `h1` o `*[@id='cuerpo']`. A diferencia del selector CSS, siempre debe especificar la relación, donde `//` significa cualquier descendiente directo o indirecto y `/` significa un hijo directo. Si la relación no es una relación de hijo o descendiente (sino, por ejemplo, un hermano o un padre), se especifica con, por ejemplo, `//a/parent::p` que significa `a` en cualquier parte del documento (`//a`) que tiene un padre directo (`/parent::`) que es `p`.</p>
+
+<p style="font-size: 26px; text-align: justify; color: darkorange;">Una segunda diferencia con los selectores CSS es que los atributos `class` e `id` no reciben un tratamiento especial, pero pueden usarse con el patrón general `[@attribute='value']`. Por lo tanto, para obtener el párrafo principal, debe especificar `//p[@class='principal']`.</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Más info sobre XPath](https://es.wikipedia.org/wiki/XPath)
+</b>
+</div>
+
+## <b>Web scraping como ingeniería inversa</b>{style="color: darkred;"}
+
+<p style="font-size: 30px; text-align: justify; color: darkorange; margin-top: 60px;">Cuando hacemos web scraping se puede decir que estamos aplicando ingeniería inversa a la forma en que se publicó la información en la web. Por ejemplo, si un sitio de noticias siempre usa un formato específico para indicar el título de un artículo, nosotrxs usaremos luego ese estilo para extraer el título. Este proceso se puede definir como un análisis para extraer información significativa. En este punto es muy importante familiarizarse con el uso de las etiquetas HTML y sus atributos CSS.</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Para practicar con estructuras de estiquetas HTML](https://liveweave.com/)
+</b>
+</div>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[Para practicar selección de estilos CSS](https://flukeout.github.io/)
+</b>
+</div>
+
+# <b>Herramientas de inspección de estructuras HTML</b>{style="margin-top: 12%; color: skyblue"}
+
+## <b>Ver código fuente de la página</b>{style="margin-top: 5%; color: darkred;"}
+
+<p style="font-size: 36px; text-align: justify; color: black; margin-top: 75px;">Una de las herramientas más usadas está incluida en los navegadores. Cada navegador (Firefox, Chrome, Opera, Safari, etc.) cuenta con una vista nativa del código fuente de la página web.</p>
+
+## <b>Inspeccionar</b>{style="color: darkred;"}
+
+<p style="font-size: 22px; text-align: justify; color: black; margin-top: 25px;">Otra de las herramientas más usadas también está incluida en los navegadores. Cada navegador (Firefox, Chrome, Opera, Safari, etc.) cuenta con un inspector web. Además de los atajos de teclado `Ctrl + Shift + C` y la tecla `F12`, también se puede acceder si primero hacemos clic en el botón derecho del mouse sobre la página web a inspeccionar y luego hacemos clic izquierdo en la opción de inspeccionar, como se ve en la imagen de abajo.</p>
+
+![](https://camo.githubusercontent.com/6b43b59d234852bd5e5199376fdb442ca06b9598655739a33b69ded29bd5242b/68747470733a2f2f6573747564696f736d61726974696d6f73736f6369616c65732e6f72672f446174615f54616c6c65522f496e7370656363696f6e61724368726f6d652e706e67)
+
+## <b>SelectorGadget</b>{style="margin-top: 2%; color: skyblue; font-size: 58px;"}
+
+<p style="font-size: 28px; text-align: justify; color: black; margin-top: 35px;">SelectorGadget es una herramienta de código abierto que facilita la identificación de selectores CSS en sitios web. Es una extensión para Chrome que una vez activado puede ejecutarse en cualquier página web. Se abrirá un cuadro en la parte inferior derecha del sitio web. Haga clic en un elemento de la página que desea que coincida con su selector (se volverá verde). SelectorGadget generará un selector de CSS mínimo para ese elemento y resaltará (en amarillo) todo lo que coincida con el selector. Ahora haga clic en un elemento resaltado para eliminarlo del selector (rojo), o haga clic en un elemento no resaltado para agregarlo al selector. A través de este proceso de selección y rechazo, SelectorGadget lo ayuda a encontrar el selector CSS que contiene la información que deseamos recuperar.</p>
+
+<div style="font-size: 20px; color: skyblue;">>
+<b>
+[SelectorGadget](https://rvest.tidyverse.org/articles/selectorgadget.html)
+</b>
+</div>
+
+## <b>El paquete selectr</b>{style="color: darkred;"}
+
+<p style="font-size: 36px; text-align: justify; color: black; margin-top: 75px;">Los selectores CSS se traducen a selectores XPath mediante el paquete `selectr`, que es una adaptación a R del paquete cssselect de Python. Esto puede ser importante en algunos casos. La extensión SelectorGadget citada más arriba también realiza esta función.</p>
+
+<div style="font-size: 20px; color: skyblue; margin-top: 65px;">>
+<b>
+[Ir a selectr](https://sjp.co.nz/projects/selectr/)
+</b>
+</div>
+
+## <b>Un ejemplo con selectr</b>{style="color: darkred;"}
+
+```{r selectr1}
+selectr::css_to_xpath("article h3")
+```
+
+```{r selectr2}
+rvest::read_html("https://github.com/agusnieto77/web-scraping-con-r") |> 
+  rvest::html_elements(xpath = "descendant-or-self::article/descendant::h3") |> 
+  rvest::html_text2()
+```
+
+
+## <b>Algunos resursos más</b>{style="color: darkred; margin-top: 60px;"}
+
+<p style="font-size: 40px; text-align: justify; color: black; margin-top: 95px;">Por acá dejamos dos recursos para interiorizarse más en la inspección de elementos: [en chrome](https://developer.chrome.com/docs/devtools/css/) y [en mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors). Y por acá dejamos una breve introducción a los [elementos html](https://rvest.tidyverse.org/articles/harvesting-the-web.html).</p>
