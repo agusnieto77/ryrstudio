@@ -52,7 +52,7 @@ body {
 <p style="font-size: 30px; text-align: justify; color: darkorange;">**Git** y **GitHub** son dos entidades diferentes que te ayudan a gestionar y alojar archivos. En otras palabras Git sirve para controlar las versiones de los archivos mientras que GitHub es una plataforma para alojar repositorios Git.</p>
 <div style="font-size: 20px; color: skyblue;">>
 <b>
-[Más info sobre Git](https://es.wikipedia.org/wiki/GitHub)
+[Más info sobre GitHub](https://es.wikipedia.org/wiki/GitHub)
 </b>
 </div>
 
