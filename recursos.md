@@ -18,6 +18,10 @@ Link de descarga de RStudio
 Link a RStudio Cloud
 [aquí](https://login.rstudio.cloud/register?redirect=https%3A%2F%2Fclient.login.rstudio.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D0)
 
+## Correr R en Colab
+
+[r\_colab](https://colab.to/r)
+
 ## Guías rápidas de funciones
 
 [intro a
