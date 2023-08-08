@@ -46,7 +46,7 @@ for (i in seq_along(links)) {
   cat('\014')
 }
 
-# Parte II - Datos estructurados ------------------------------------------
+# Parte III - Datos estructurados ------------------------------------------
 
 # Creamos el objeto 'url' en base a un link de Wikipedia
 url <- 'https://es.wikipedia.org/wiki/Demograf%C3%ADa_de_Argentina'
@@ -58,10 +58,11 @@ html <- read_html(url)
 print(html)
 
 # Seleccionamos las tablas del contenido HTML
-tablas <- html_table(html_nodes(html, ".wikitable"))
+tablas <- html_table(html_elements(html, ".wikitable"))
 
 # Imprimir todas las tablas
 tablas
+
 
 # Imprimir solo la primera tabla
 print(tablas[[2]], n = 24)
@@ -96,16 +97,20 @@ as.character(html)
 xml2::html_structure(html)
 
 # Seleccionamos nodos de fecha y los convertimos en un vector de fechas
-fechas <- html |> 
-  html_elements(xpath='//*[contains(@class, "com-date")]') |> 
-  html_text2()
+fechas <-
+  html_text2( # 
+    html_elements(
+      html,
+      xpath='//*[contains(@class, "com-date")]'
+      )
+    )
 
 # Imprimir las fechas
 fechas
 class(fechas)
 
 # Transformamos el vector 'fechas' en un vector de clase 'data-time'
-fechas <- as_date(fechas, format = '%d de %B de %Y')
+fechas <- base::as.Date(fechas, format = '%d de %B de %Y')
 class(fechas)
 fechas <- as.character(fechas)
 fechas <- as_date(fechas)
@@ -142,13 +147,13 @@ for (i in 1:length(titulares)) {
 }
 
 # Imprimir los datos
-datos
+datos[[2]]$fecha
 
 # Formatear los resultados de la minería en formato JSON
 json <- toJSON(datos)
 
 # Imprimir el JSON
-json
+json |> class()
 
 # Formatear los resultados de la minería en formato tibble (data frame mejorado)
 df <- unnest(fromJSON(json), cols = c(fecha, titular, link))
